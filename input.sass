@@ -1,0 +1,120 @@
+@import 'defaults'
+
+#example
+  @import 'example'
+
+.error
+  border: 1px #f00
+  background-color: #fdd
+
+.seriousError
+  @extend .error
+  border-width: 3px
+
+#context a%extreme
+  color: blue
+  font-weight: bold
+  font-size: 2em
+
+.notice
+  @extend %extreme
+
+#main
+  font-size: 10px
+
+  a
+    color: red
+    
+    &:hover
+      color: black
+
+  &:hover
+    font-size: 12px
+
+  &-suff
+    display: inline-block
+
+.container
+  font:
+    size: 14px
+    weight: bold
+    family: Helvetica
+
+.container
+  font: 20px Helvetica
+    weight: bold
+
+%grids
+  min-height: 1px
+  position: relative
+  padding-left: 10px
+  padding-right: 10px
+  margin-bottom: 20px
+
+.sgrid-N
+  @extend %grids
+
+//этот коментарий не попадет в css
+/*этот попадет*/
+/*!тоже должен попасть и останется даже в режиме сжатия*/
+
+//sass -i интерактивный режим
+
+//переменные имеют области видимости
+#main
+  $width: 5em !global
+  width: $width
+
+#sidebar
+  width: $width
+
+// типы данных
+// числа (1.2, 13, 10px)
+// текстовые строки, с кавычками и без них ("foo", 'bar', baz)
+// цвета (blue, #04a3f9, rgba(255, 0, 0, 0.5))
+// булевы значения (true, false)
+// null
+// списки значений, с разделительными пробелами или запятыми (1.5em 1em 0 2em; Times New Roman, Arial, sans-serif)
+// массивы(мапы) (key1: value1, key2: value2
+
+$status-colors: (primary: #000, success: #27BA6C, info: #03a9f4, warning: #FF8833, danger: #ff1a1a)
+
+.message
+
+  @each $status, $color in $status-colors
+
+    &-#{$status}
+      background: $color
+
+$menuOn: true
+$menuDropDown: true
+
+.menu li
+  color: #ff0000
+  text-decoration: underline
+  @if $menuOn == true and $menuDropDown == true
+    position: relative
+
+=mixin-example
+  display: inline-block
+  &:after 
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+
+  * html &
+    height: 1px
+
+.container
+  +mixin-example
+
+=sexy-border($color, $width)
+  border: 
+    color: $color
+    width: $width
+    style: dashed
+
+.container
+  +sexy-border(red, 4px)

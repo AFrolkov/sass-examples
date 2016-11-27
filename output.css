@@ -1,0 +1,96 @@
+@charset "UTF-8";
+html,
+body,
+div {
+  color: #333;
+  pading: 30px; }
+  html .error, html .seriousError,
+  body .error,
+  body .seriousError,
+  div .error,
+  div .seriousError {
+    border-color: red; }
+
+#example .example {
+  font-color: green; }
+
+.error, .seriousError {
+  border: 1px #f00;
+  background-color: #fdd; }
+
+.seriousError {
+  border-width: 3px; }
+
+#context a.notice {
+  color: blue;
+  font-weight: bold;
+  font-size: 2em; }
+
+#main {
+  font-size: 10px; }
+  #main a {
+    color: red; }
+    #main a:hover {
+      color: black; }
+  #main:hover {
+    font-size: 12px; }
+  #main-suff {
+    display: inline-block; }
+
+.container {
+  font-size: 14px;
+  font-weight: bold;
+  font-family: Helvetica; }
+
+.container {
+  font: 20px Helvetica;
+    font-weight: bold; }
+
+.sgrid-N {
+  min-height: 1px;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 20px; }
+
+/*этот попадет */
+/*!тоже должен попасть и останется даже в режиме сжатия */
+#main {
+  width: 5em; }
+
+#sidebar {
+  width: 5em; }
+
+.message-primary {
+  background: #000; }
+.message-success {
+  background: #27BA6C; }
+.message-info {
+  background: #03a9f4; }
+.message-warning {
+  background: #FF8833; }
+.message-danger {
+  background: #ff1a1a; }
+
+.menu li {
+  color: #ff0000;
+  text-decoration: underline;
+  position: relative; }
+
+.container {
+  display: inline-block; }
+  .container:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .container {
+    height: 1px; }
+
+.container {
+  border-color: red;
+  border-width: 4px;
+  border-style: dashed; }
+
+/*# sourceMappingURL=output.css.map */
